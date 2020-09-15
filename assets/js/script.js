@@ -1,7 +1,8 @@
 console.log(questions);
-
+// Question container element
 var displayQuestionEl = document.querySelector(".display-questions");
-var
+// Timer element
+var timerEl = document.querySelector(".timer")
 var
 
 var mainDisplay = document.createElement("h3");
