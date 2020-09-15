@@ -45,7 +45,7 @@ function showTimer() {
 
 }
 
-
+// function which displays the next question
 function nextQestion() {
     var currentQuestion = questions[index];
     console.log(currentQuestion);
@@ -62,7 +62,7 @@ function nextQestion() {
     }
 }
 
-
+// function to check the answer
 function checkAnswer(event) {
     var responseText = event.target.textContent;
     console.log(responseText);
@@ -77,6 +77,7 @@ function checkAnswer(event) {
     nextQuestion();
 }
 
-
+// event listener to start the quiz
 startBtn.addEventListener("click", startQuiz)
+// call function to show the opening page
 openingPage();
