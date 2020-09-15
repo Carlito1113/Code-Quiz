@@ -52,7 +52,9 @@ function nextQestion() {
     displayQuestionEl.textContent = "";
     mainDisplay.textContent = currentQuestion.title;
     displayQuestionEl.append(mainDisplay);
+
     var choicesContainer = document.createElement("div");
+    
     for (let i = 0; i < currentQuestion.choices.length; i++) {
 
         var choiceBtn = document.createElement("button");
@@ -64,17 +66,31 @@ function nextQestion() {
 
 // function to check the answer
 function checkAnswer(event) {
+
+    function stopTime() {
+
+        clearInterval(questionTimer);
+    }
+
     var responseText = event.target.textContent;
+
     console.log(responseText);
 
     if (respsonseText === questions[index].answer) {
+
         console.log("Correct");
+
     } else {
         console.log("Incorrect");
     }
 
     index++;
+
     nextQuestion();
+
+    if (index >- questions.length) {
+        clearInterval(questionTimer)
+    }
 }
 
 // event listener to start the quiz
