@@ -3,7 +3,7 @@ console.log(questions);
 var displayQuestionEl = document.querySelector(".display-questions");
 // Timer element
 var timerEl = document.querySelector(".timer")
-var
+var resultsEl = document.querySelector(".results")
 
 var mainDisplay = document.createElement("h3");
 // Button to start the Quiz
