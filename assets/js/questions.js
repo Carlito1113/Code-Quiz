@@ -7,8 +7,8 @@ var questions = [
 
 {
     title: "Question 2: What does HTML stand for?",
-    choices: ["Hyper-text Markup Language", "Hyper-thisclassisverydifficult Markup legume", "The universe", "27"],
-    answer: "Hyper-text Markup Language"
+    choices: ["The universe", "Hyper-thisclassisverydifficult Markup legume", "Hypertext Markup Language", "27"],
+    answer: "Hypertext Markup Language"
 },
 
 {
