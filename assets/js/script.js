@@ -45,7 +45,15 @@ openingPage();
 
 startBtn.onclick = startQuiz;
 
+// Load page contents
+function onLoad() {
+    mainDisplay.textContent = "Click to start!"
+    timerEl.prepend(hs);
+    displayQuestionsEl.append(mainDisplay, startBtn);
+    hs.innerHTML = "Highscores";
+    startBtn.textContent = "Start";
 
+}
 
 function openingPage() {
     mainDisplay.textContent = "Press the button to start"
