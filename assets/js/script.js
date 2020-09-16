@@ -48,10 +48,10 @@ startBtn.onclick = startQuiz;
 // Load page contents
 function onLoad() {
     mainDisplay.textContent = "Click to start!"
-    timerEl.prepend(hs);
+    startBtn.textContent = "Start";
     displayQuestionsEl.append(mainDisplay, startBtn);
     hs.innerHTML = "Highscores";
-    startBtn.textContent = "Start";
+    timerEl.prepend(hs);
 
 }
 
@@ -66,15 +66,16 @@ function startQuiz() {
     nextQuestion();
 
 }
-
+// Timer
 function showTimer() {
-    timerEl.textContent = timer;
+
+    timerEl.textContent = "Time remaining: " + timer;
 
     var questionTimer = setInterval(function(){
         // decrease timer by one
         timer--
         // display timer to screen
-        timerEl.textcontent = timer;
+        timerEl.textcontent = "Time remaining: " + timer;
         if(timer <= 0){
             clearInterval(questionTimer);
         }
