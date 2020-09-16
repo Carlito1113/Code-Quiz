@@ -23,7 +23,7 @@ var sButton = document.createElement("input");
 var goBack = document.createElement("button");
 
 // Storing the timer
-var timer = 75;
+var timer = 60;
 // Storing index
 var index = 0;
 // Answer result
@@ -38,26 +38,15 @@ openingPage();
 
 // Functions
 
-// call for opening page
-onload();
-
-init();
-
 startBtn.onclick = startQuiz;
 
 // Load page contents
-function onLoad() {
+function openingPage() {
   mainDisplay.textContent = "Click to start!";
   startBtn.textContent = "Start";
   displayQuestionsEl.append(mainDisplay, startBtn);
   hs.innerHTML = "Highscores";
   timerEl.prepend(hs);
-}
-
-function openingPage() {
-  mainDisplay.textContent = "Press the button to start";
-  startBtn.textContent = "Start";
-  displayQuestionsEl.append(mainDisplay, startBtn);
 }
 
 function startQuiz() {
@@ -86,11 +75,11 @@ function nextQuestion() {
   // console test
   console.log(currentQuestion);
   // Empty question container
-  displayQuestionEl.textContent = "";
+  displayQuestionsEl.textContent = "";
   // Adds current question into the container
   mainDisplay.textContent = currentQuestion.title;
   // Append the text to show
-  displayQuestionEl.append(mainDisplay);
+  displayQuestionsEl.append(mainDisplay);
   // div to wrap choices
   var choicesContainer = document.createElement("div");
   choicesContainer.classList.add("buttonDiv");
