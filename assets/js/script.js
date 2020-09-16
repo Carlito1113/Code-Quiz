@@ -40,6 +40,7 @@ openingPage();
 
 // call for opening page
 onload();
+
 init();
 
 startBtn.onclick = startQuiz;
@@ -170,6 +171,22 @@ goBack.addEventListener("click", function () {
 hs.addEventListener("click", function(){
     displayQuestionsEl.innerHTML = "";
     document.getElementById("title").textContent = "Highscores";
+    storeScores();
+    showHighscores();
+});
+
+sButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    var scoresText = form.value.trim() + " " + score;
+
+    if (form.value === "") {
+        return;
+    }
+    // Add new score and clear the input
+    highscores.push(scoresText);
+    form.value = "";
+    document.getElementsById("title").textContent = "Highscores";
+    displayQuestionsEl.style.display = "none";
     storeScores();
     showHighscores();
 });
