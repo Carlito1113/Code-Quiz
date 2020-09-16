@@ -116,29 +116,36 @@ function nextQuestion() {
 // function to check the answer
 function checkAnswer(event) {
 
-    function stopTime() {
-
-        clearInterval(questionTimer);
-    }
-
+    resultDisplay.setAttribute("class", "result")
     var responseText = event.target.textContent;
-
     console.log(responseText);
 
     if (respsonseText === questions[index].answer) {
-
+        index++
         console.log("Correct");
+        if (timer <= 0 || index == questions.length){
+            gameOver();
+        } else{
+            nextQuestion();
+            resultDisplay.innerHTML = "Correct!";
+            displayQuestionsEl.appendChild(resultDisplay);
+        }
+
 
     } else {
+        timer = timer-10;
+        index++
         console.log("Incorrect");
-    }
-
-    index++;
-
-    nextQuestion();
-
-    if (index >- questions.length) {
-        clearInterval(questionTimer)
+        if (timer <= 0 || index == quesitons.length){
+            gameOver();
+        } else {
+            nextQuestion();
+            resultDisplay.innerHTML = "Wrong!";
+            displayQuestionsEl.appendChild(resultDisplay);
+        }
     }
 }
+
+
+
 
