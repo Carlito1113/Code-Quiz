@@ -1,40 +1,51 @@
 // Global variables
 
 // Question container element
-let displayQuestionsEl = document.querySelector(".display-questions");
+var displayQuestionsEl = document.querySelector(".display-questions");
 // Timer element
-let timerEl = document.querySelector(".timer");
+var timerEl = document.querySelector(".timer");
 // Hooking the results
-let resultsEl = document.querySelector(".results");
+var resultsEl = document.querySelector(".results");
 // Displaying the instructions and questions
-let mainDisplay = document.createElement("h3");
+var mainDisplay = document.createElement("h3");
 // Start quiz button
-let startBtn = document.createElement("button");
+var startBtn = document.createElement("button");
 startBtn.classList.add("button");
 
-let hs = document.createElement("p");
+var hs = document.createElement("p");
 
-let initialForm = document.createElement("form");
+var initialForm = document.createElement("form");
 
-let form = document.createElement("input");
+var form = document.createElement("input");
 
-let sButton = document.createElement("input");
+var sButton = document.createElement("input");
 
-let goBack = document.createElement("button");
+var goBack = document.createElement("button");
 
-
-
-
+// Storing the timer
 var timer = 75;
-
+// Storing index
 var index = 0;
-
+// Answer result
+var resultDisplay = document.createElement("p");
+var score = 0;
+var highscores = [];
 
 
 // event listener to start the quiz
 startBtn.addEventListener("click", startQuiz)
 // call function to show the opening page
 openingPage();
+
+// Functions
+
+// call for opening page
+    onload();
+    init();
+
+startBtn.onclick = startQuiz;
+
+
 
 function openingPage() {
     mainDisplay.textContent = "Press the button to start"
