@@ -84,23 +84,33 @@ function showTimer() {
 
 }
 
-// function which displays the next question
+// Displays the next question
 function nextQuestion() {
+    // Stores question index
     var currentQuestion = questions[index];
+    // console test
     console.log(currentQuestion);
+    // Empty question container
     displayQuestionEl.textContent = "";
+    // Adds current question into the container
     mainDisplay.textContent = currentQuestion.title;
+    // Append the text to show
     displayQuestionEl.append(mainDisplay);
-
+    // div to wrap choices
     var choicesContainer = document.createElement("div");
-
+    choicesContainer.classList.add("buttonDiv");
+    // loop to change answer
     for (let i = 0; i < currentQuestion.choices.length; i++) {
-
+        // Button for choices
         var choiceBtn = document.createElement("button");
-        choiceBtn.textContent = currentQuestion.choices[i];
-        choiceBtn.addEventListener("click", checkAnswer);
+        choiceBtn.textContent = currentQuestion.choices[choice];
+        choiceBtn.classList.add("answer-btn");
+        choicesContainer.append(choiceBtn);
+        // Check for answer
+        choiceBtn.onclick = checkAnswer;
         choicesContainer.append(choiceBtn);
     }
+    displayQuestionsEl.append(choicesContainer);
 }
 
 // function to check the answer
