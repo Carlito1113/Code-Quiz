@@ -1,25 +1,25 @@
 var questions = [
 {
-    title: "Question 1:",
-    choices: ["Choice 1","Choice 2","Choice 3","Choice 4"],
-    answer: "answer from choices"
+    title: "Question 1: What is the primary programming language of the Web? ",
+    choices: ["Javascript","HTML","CSS","Pineapple"],
+    answer: "Javascript"
 },
 
 {
-    title: "Question 2:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "answer from choices"
+    title: "Question 2: What does HTML stand for?",
+    choices: ["Hyper-text Markup Language", "Hyper-thisclassisverydifficult Markup legume", "The universe", "27"],
+    answer: "Hyper-text Markup Language"
 },
 
 {
-    title: "Question 3:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "answer from choices"
+    title: "Question 3: What does CSS do?",
+    choices: ["Debug your code", "Program logic into a website", "Make things pretty!", "End world hunger"],
+    answer: "Make things pretty!"
 },
 
 {
-    title: "Question 4:",
-    choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-    answer: "answer from choices"
+    title: "Question 4: Who is the coolest being to ever exist?",
+    choices: ["You", "The individual coding this", "Everyone", "Instructor John's dog"],
+    answer: ["You", "The individual coding this", "Everyone", "Instructor John's dog"]
 }
 ];

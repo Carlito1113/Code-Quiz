@@ -163,7 +163,7 @@ hs.addEventListener("click", function () {
   showHighscores();
 });
 
-sButton.addEventListener("click", function(event) {
+sButton.addEventListener("click", function (event) {
   event.preventDefault();
   var scoresText = form.value.trim() + " " + score;
 
