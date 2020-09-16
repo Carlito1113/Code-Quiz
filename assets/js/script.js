@@ -1,9 +1,9 @@
-console.log(questions);
 // Question container element
-var displayQuestionEl = document.querySelector(".display-questions");
+var displayQuestionsEl = document.querySelector(".display-questions");
 // Timer element
-var timerEl = document.querySelector(".timer")
-var resultsEl = document.querySelector(".results")
+var timerEl = document.querySelector(".timer");
+
+var resultsEl = document.querySelector(".results");
 
 var mainDisplay = document.createElement("h3");
 // Button to start the Quiz
@@ -15,18 +15,21 @@ var index = 0;
 
 
 
-
-
-
+// event listener to start the quiz
+startBtn.addEventListener("click", startQuiz)
+// call function to show the opening page
+openingPage();
 
 function openingPage() {
     mainDisplay.textContent = "Press the button to start"
     startBtn.textContent = "Start"
-    displayQuestionsEl.append(mainDisplay, startBtn)
+    displayQuestionsEl.append(mainDisplay, startBtn);
 }
 
 function startQuiz() {
-    showTimer()
+    showTimer();
+    nextQuestion();
+
 }
 
 function showTimer() {
@@ -41,12 +44,12 @@ function showTimer() {
             clearInterval(questionTimer);
         }
 
-    }, 1 * 1000)
+    }, 1000)
 
 }
 
 // function which displays the next question
-function nextQestion() {
+function nextQuestion() {
     var currentQuestion = questions[index];
     console.log(currentQuestion);
     displayQuestionEl.textContent = "";
@@ -54,7 +57,7 @@ function nextQestion() {
     displayQuestionEl.append(mainDisplay);
 
     var choicesContainer = document.createElement("div");
-    
+
     for (let i = 0; i < currentQuestion.choices.length; i++) {
 
         var choiceBtn = document.createElement("button");
@@ -93,7 +96,3 @@ function checkAnswer(event) {
     }
 }
 
-// event listener to start the quiz
-startBtn.addEventListener("click", startQuiz)
-// call function to show the opening page
-openingPage();
