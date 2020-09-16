@@ -1,13 +1,29 @@
+// Global variables
+
 // Question container element
-var displayQuestionsEl = document.querySelector(".display-questions");
+let displayQuestionsEl = document.querySelector(".display-questions");
 // Timer element
-var timerEl = document.querySelector(".timer");
+let timerEl = document.querySelector(".timer");
+// Hooking the results
+let resultsEl = document.querySelector(".results");
+// Displaying the instructions and questions
+let mainDisplay = document.createElement("h3");
+// Start quiz button
+let startBtn = document.createElement("button");
+startBtn.classList.add("button");
 
-var resultsEl = document.querySelector(".results");
+let hs = document.createElement("p");
 
-var mainDisplay = document.createElement("h3");
-// Button to start the Quiz
-var startBtn = document.createElement("button");
+let initialForm = document.createElement("form");
+
+let form = document.createElement("input");
+
+let sButton = document.createElement("input");
+
+let goBack = document.createElement("button");
+
+
+
 
 var timer = 75;
 
