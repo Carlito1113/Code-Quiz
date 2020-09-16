@@ -163,3 +163,13 @@ goBack.classList.add("endButton");
 goBack.innerHTML = "Go Back";
 bottomDiv.appendChild(goBack);
 }
+// Return to home back via back button
+goBack.addEventListener("click", function () {
+    location.reload()
+});
+hs.addEventListener("click", function(){
+    displayQuestionsEl.innerHTML = "";
+    document.getElementById("title").textContent = "Highscores";
+    storeScores();
+    showHighscores();
+});
