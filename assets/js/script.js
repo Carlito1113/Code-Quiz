@@ -61,19 +61,17 @@ function showTimer() {
     // decrease timer by one
     timer--;
     // display timer to screen
-    timerEl.textcontent = "Time remaining: " + timer;
+    timerEl.textContent = "Time remaining: " + timer;
     if (timer <= 0) {
       clearInterval(questionTimer);
     }
-  }, 1000);
+  }, 1000)
 }
 
 // Displays the next question
 function nextQuestion() {
   // Stores question index
   var currentQuestion = questions[index];
-  // console test
-  console.log(currentQuestion);
   // Empty question container
   displayQuestionsEl.textContent = "";
   // Adds current question into the container
@@ -84,12 +82,11 @@ function nextQuestion() {
   var choicesContainer = document.createElement("div");
   choicesContainer.classList.add("buttonDiv");
   // loop to change answer
-  for (let i = 0; i < currentQuestion.choices.length; i++) {
+  for (choice in currentQuestion.choices) {
     // Button for choices
     var choiceBtn = document.createElement("button");
-    choiceBtn.textContent = currentQuestion.choices[choice];
     choiceBtn.classList.add("answer-btn");
-    choicesContainer.append(choiceBtn);
+    choiceBtn.textContent = currentQuestion.choices[choice];
     // Check for answer
     choiceBtn.onclick = checkAnswer;
     choicesContainer.append(choiceBtn);
@@ -101,10 +98,11 @@ function nextQuestion() {
 function checkAnswer(event) {
   resultDisplay.setAttribute("class", "result");
   var responseText = event.target.textContent;
-  console.log(responseText);
+  
 
-  if (respsonseText === questions[index].answer) {
+  if (responseText === questions[index].answer) {
     index++;
+    console.log(timer);
     console.log("Correct");
     if (timer <= 0 || index == questions.length) {
       gameOver();
@@ -117,7 +115,7 @@ function checkAnswer(event) {
     timer = timer - 10;
     index++;
     console.log("Incorrect");
-    if (timer <= 0 || index == quesitons.length) {
+    if (timer <= 0 || index == questions.length) {
       gameOver();
     } else {
       nextQuestion();
@@ -128,54 +126,55 @@ function checkAnswer(event) {
 }
 
 function gameOver() {
-  if (time < 0) {
+  if (timer < 0) {
     score = 0;
   } else {
     score = timer;
   }
-// Form
-var bottomDiv = document.querySelector(".buttonDiv");
-timerEl.getElementsByClassName.display = "none";
-resultDisplay.style.display = "none";
-bottomDiv.innerHTML = "";
-mainDisplay.textContent = "Your score is " + score + "!";
-form.setAttribute("type", "text");
-form.setAttribute("name", "Name");
-form.setAttribute("placeholder", "Enter your name");
-sButton.setAttribute("type", "submit");
-sButton.setAttribute("value", "Submit");
-sButton.classList.add("endButton");
-sButton.style.margin = "10px";
-bottomDiv.appendChild(initialForm);
-initialForm.appendChild(form);
-initialForm.appendChild(sButton);
-goBack.classList.add("endButton");
-goBack.innerHTML = "Go Back";
-bottomDiv.appendChild(goBack);
+  // Form
+  var bottomDiv = document.querySelector(".buttonDiv");
+  timerEl.style.display = "none";
+  resultDisplay.style.display = "none";
+  bottomDiv.innerHTML = "";
+  mainDisplay.textContent = "Your score is " + score+ "!";
+  form.setAttribute("type", "text");
+  form.setAttribute("name", "Name");
+  form.setAttribute("placeholder", "Enter your name");
+  sButton.setAttribute("type", "submit");
+  sButton.setAttribute("value", "Submit");
+  sButton.classList.add("endButton");
+  sButton.style.margin = "10px";
+  bottomDiv.appendChild(initialForm);
+  initialForm.appendChild(form);
+  initialForm.appendChild(sButton);
+  goBack.classList.add("endButton");
+  goBack.innerHTML = "Go Back";
+  bottomDiv.appendChild(goBack);
 }
 // Return to home back via back button
 goBack.addEventListener("click", function () {
-    location.reload()
+  location.reload();
 });
-hs.addEventListener("click", function(){
-    displayQuestionsEl.innerHTML = "";
-    document.getElementById("title").textContent = "Highscores";
-    storeScores();
-    showHighscores();
+
+hs.addEventListener("click", function () {
+  displayQuestionsEl.innerHTML = "";
+  document.getElementById("title").textContent = "Highscores";
+  storeScores();
+  showHighscores();
 });
 
 sButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    var scoresText = form.value.trim() + " " + score;
+  event.preventDefault();
+  var scoresText = form.value.trim() + " " + score;
 
-    if (form.value === "") {
-        return;
-    }
-    // Add new score and clear the input
-    highscores.push(scoresText);
-    form.value = "";
-    document.getElementsById("title").textContent = "Highscores";
-    displayQuestionsEl.style.display = "none";
-    storeScores();
-    showHighscores();
+  if (form.value === "") {
+    return;
+  }
+  // Add new score and clear the input
+  highscores.push(scoresText);
+  form.value = "";
+  document.getElementById("title").textContent = "Highscores";
+  displayQuestionsEl.style.display = "none";
+  storeScores();
+  showHighscores();
 });
